@@ -2,7 +2,10 @@ package web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import web.models.User;
 import web.service.UserService;
 
@@ -39,26 +42,17 @@ public class UserController {
         userService.deleteUser(id);
         return "redirect:/";
     }
-//    @GetMapping(value = "/edit")
-//    public String editUser(@RequestParam(value = "id") long id, Model model) {
-//        model.addAttribute("user", userService.getUserById(id));
-//        return "editUser";
-//    }
-//
-//    @PostMapping(value = "/edit")
-//    public String editUser(@ModelAttribute("user") User user) {
-//        userService.editUser(user);
-//        return "redirect:/";
-//    }
-    @GetMapping(value = "/{id}/edit")
+
+    @GetMapping(value = "/edit")
     public String editUser(@RequestParam(value = "id") long id, Model model) {
         model.addAttribute("user", userService.getUserById(id));
         return "editUser";
     }
 
-    @PostMapping( "{id}")
-    public String editUser(@ModelAttribute("user") User user, @PathVariable("id") Long id) {
+    @PostMapping(value = "/edit")
+    public String editUser(@ModelAttribute("user") User user) {
         userService.editUser(user);
         return "redirect:/";
     }
+
 }
