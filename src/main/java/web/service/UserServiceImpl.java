@@ -19,11 +19,11 @@ public class UserServiceImpl implements UserService {
         this.userDao = userDao;
     }
 
-    @Override
-    @Transactional
-    public void addUser(User user) {
-        userDao.addUser(user);
-    }
+//    @Override
+//    @Transactional
+//    public void addUser(User user) {
+//        userDao.addUser(user);
+//    }
 
     @Override
     @Transactional

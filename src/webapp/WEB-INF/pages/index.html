@@ -10,36 +10,27 @@
 <div>
     <table border="2">
         <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                LastName
-            </th>
-            <th>
-                Email
-            </th>
+            <th> Name</th>
+            <th> LastName</th>
+            <th> Email</th>
+            <th> Operation</th>
         </tr>
         <tr th:each="user : ${users}">
             <td th:utext="${user.name}"></td>
             <td th:utext="${user.lastName}"></td>
             <td th:utext="${user.email}"></td>
+
             <td>
-                <form th:action="@{/delete(id=${user.id})}" th:object="${user}">
-                    <input type="hidden" name="id" th:value="${user.id}">
-                    <button type="submit">Delete</button>
-                </form>
-            </td>
-            <td>
-                <a th:href="@{'/edit?id=' + ${user.id}}" th:color="yellow">
-                    <span>Change</span>
-                </a>
+                <a th:href="@{'/delete?id=' + ${user.id}}">Delete</a>
+                <a th:href="@{'/edit?id=' + ${user.id}}">Change</a>
             </td>
         </tr>
     </table>
+
     <form th:action="@{/add}">
         <button type="submit">Create new user</button>
     </form>
+
 </div>
 </body>
 </html>

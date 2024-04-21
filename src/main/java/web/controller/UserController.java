@@ -28,13 +28,7 @@ public class UserController {
     public String addUser(Model model) {
         User user = new User();
         model.addAttribute("user", user);
-        return "addUser";
-    }
-
-    @PostMapping(value = "/add")
-    public String addUser(@ModelAttribute("user") User user) {
-        userService.addUser(user);
-        return "redirect:/";
+        return "editUser";
     }
 
     @GetMapping("/delete")

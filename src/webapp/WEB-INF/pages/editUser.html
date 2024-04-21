@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>Update User</title>
+    <meta charset="UTF-8">
+    <title>Info User</title>
 </head>
 <body>
-<h2>Update User</h2>
+<h2>Info User</h2>
 <div>
 
-  <form th:action="@{/edit/ }" th:object="${user}" th:method="POST">
-    <input type="hidden" name="id" th:value="${user.getId()}">
+    <form th:action="@{/edit/ }" th:object="${user}" th:method="POST">
 
-      <legend>Info user</legend>
-      <p>
-        <label th:for="name">Name</label>
-        <input type="text" name="name" th:id="name" th:value="${user.getName()}">
-      </p>
-      <p>
-        <label th:for="lastName">Last Name</label>
-        <input type="text" name="lastName" th:id="lastName" th:value="${user.getLastName()}"><br/>
-      </p>
-      <p>
-        <label th:for="email">Email</label>
-        <input type="text" name="email" th:id="email" th:value="${user.getEmail()}"><br/>
-      </p>
+        <input type="hidden" name="id" th:value="${user.getId()}">
+
+        <p>
+            <label th:for="name">Name</label>
+            <input type="text" name="name" th:id="name" th:value="${user.getName()}">
+        </p>
+        <p>
+            <label th:for="lastName">Last Name</label>
+            <input type="text" name="lastName" th:id="lastName" th:value="${user.getLastName()}"><br/>
+        </p>
+        <p>
+            <label th:for="email">Email</label>
+            <input type="text" name="email" th:id="email" th:value="${user.getEmail()}"><br/>
+        </p>
+
+        <button type="submit">Ok</button>
+    </form>
 
 
-    <button type="submit">CHANGE</button>
-  </form>
-
-
-  <br/>
-  <form th:action="@{/}">
-    <button type="submit">Back</button>
-  </form>
+    <br/>
+    <form th:action="@{/}">
+        <button type="submit">Back</button>
+    </form>
 </div>
 </body>
 </html>

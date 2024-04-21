@@ -6,7 +6,7 @@ import web.models.User;
 import java.util.List;
 
 public interface UserService {
-    void addUser(User user);
+//    void addUser(User user);
 
     void deleteUser(Long id);
 
